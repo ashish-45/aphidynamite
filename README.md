@@ -1,4 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -16,21 +15,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Short Summary of the Application
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This Full-stack Next.js application provides comprehensive authentication features, including Signup, Login, and Logout functions:
 
-## Learn More
+Signup: Users can securely create an account by filling out the Signup form. The password is encrypted before being stored in the MongoDB database.
 
-To learn more about Next.js, take a look at the following resources:
+Login: Upon successful authentication, a token is generated for the user and stored in a cookie, enabling seamless access to protected routes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Logout: Users can easily log out by clicking the logout button, which removes the cookie containing the authentication token.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The application utilizes MongoDB for storing user passwords and manages authentication using tokens stored in cookies.
 
-## Deploy on Vercel
+In my Full-stack Next.js application, I use middleware to restrict access to the Profile page and product listings if the user is not logged in.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
