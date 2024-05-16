@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import { toast } from "react-toastify";
+import getStripe from '@/app/checkout/page';
 
 interface Product {
   id: string;
@@ -81,6 +82,21 @@ export default function ProductData() {
     }
   };
 
+
+    // Handle Buy Now
+    const handleBuyNow = async (price:any) => {
+      try {
+        const stripe = await getStripe();
+        const response = await Axios.post("/API/Users/checkout", { amount: parseFloat(price) });
+        const sessionId = response.data.sessionId;
+  
+        await stripe.redirectToCheckout({ sessionId });
+      } catch (error) {
+        console.error(error);
+        toast.error("Failed to initiate Stripe checkout");
+      }
+    };
+
   return (
     <div>
       <div>
@@ -99,7 +115,7 @@ export default function ProductData() {
           {showData.map((product: any, id) => (
             <div
               key={id}
-              className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"
+              className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center relative"
             >
               <img
                 src={product.thumbnail}
@@ -111,10 +127,13 @@ export default function ProductData() {
               </p>
               <p className="text-base text-gray-600">${product.price}</p>
               <button
-                className="bg-red-500 border-0 p-2 mt-2"
+                className="bg-red-500 border-0 p-2 mt-2 absolute right-1 top-0"
                 onClick={() => removeProduct(product.id)}
               >
                 Remove
+              </button>
+              <button className="bg-yellow-400 border-0 p-2 mt-2 font-bold" onClick={() => handleBuyNow(product.price)}>
+                Buy Now
               </button>
             </div>
           ))}
