@@ -8,7 +8,7 @@ export default function Success() {
           Thank You for Your Purchase!
         </h2>
         <p className="text-gray-700 mb-6">
-          We appreciate your business and hope you enjoy your new product. If
+          We appreciate your business and hope you enjoy your new product.If
           you have any questions or need further assistance, please don&lsquo;t
           hesitate to contact us.
         </p>
