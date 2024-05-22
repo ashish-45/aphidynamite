@@ -27,6 +27,8 @@ Logout: Users can easily log out by clicking the logout button, which removes th
 
 The application utilizes MongoDB for storing user passwords and manages authentication using tokens stored in cookies.
 
+Payment Gateway: User Can buy the Product, I have added the Stripe Payment gateway to implement that.
+
 In my Full-stack Next.js application, I use middleware to restrict access to the Profile page and product listings if the user is not logged in.
 
 
