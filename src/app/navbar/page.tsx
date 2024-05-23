@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import Axios from "axios";
 import Image from 'next/image'
-import Logo from '../../../public/assets/logo.png';
+import Logo from '../../../public/assets/Logo.png';
 
 export default function Navbar() {
   const pathname = usePathname();
